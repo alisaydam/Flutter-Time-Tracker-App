@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:time_tracker/common_widgets/show_alert_dialog.dart';
 import 'package:time_tracker/services/auth.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key, required this.auth}) : super(key: key);
-  final AuthBase auth;
   //Notifying our Landingpage when user signing out.
 
-  Future<void> _signOut() async {
+  Future<void> _signOut(BuildContext context) async {
+    final auth = Provider.of<AuthBase>(context, listen: false);
     try {
       await auth.signOut();
     } catch (e) {
@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
       defaultActionText: 'Logout',
     );
     if (didRequestSignOut == true) {
-      _signOut();
+      _signOut(context);
     }
   }
 
