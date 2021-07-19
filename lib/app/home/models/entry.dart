@@ -2,10 +2,10 @@ import 'package:flutter/foundation.dart';
 
 class Entry {
   Entry({
-    @required this.id,
-    @required this.jobId,
-    @required this.start,
-    @required this.end,
+    required this.id,
+    required this.jobId,
+    required this.start,
+    required this.end,
     this.comment,
   });
 
@@ -13,7 +13,7 @@ class Entry {
   String jobId;
   DateTime start;
   DateTime end;
-  String comment;
+  String? comment;
 
   double get durationInHours =>
       end.difference(start).inMinutes.toDouble() / 60.0;

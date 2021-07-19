@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:time_tracker_flutter_course/app/home/job_entries/format.dart';
-import 'package:time_tracker_flutter_course/app/home/models/entry.dart';
-import 'package:time_tracker_flutter_course/app/home/models/job.dart';
+import 'package:time_tracker/app/home/job_entries/format.dart';
+import 'package:time_tracker/app/home/models/entry.dart';
+import 'package:time_tracker/app/home/models/job.dart';
 
 class EntryListItem extends StatelessWidget {
   const EntryListItem({
-    @required this.entry,
-    @required this.job,
-    @required this.onTap,
+    required this.entry,
+    required this.job,
+    required this.onTap,
   });
 
   final Entry entry;
@@ -39,7 +39,7 @@ class EntryListItem extends StatelessWidget {
     final endTime = TimeOfDay.fromDateTime(entry.end).format(context);
     final durationFormatted = Format.hours(entry.durationInHours);
 
-    final pay = job.ratePerHour * entry.durationInHours;
+    final pay = job.ratePerHour! * entry.durationInHours;
     final payFormatted = Format.currency(pay);
 
     return Column(
@@ -49,7 +49,7 @@ class EntryListItem extends StatelessWidget {
           Text(dayOfWeek, style: TextStyle(fontSize: 18.0, color: Colors.grey)),
           SizedBox(width: 15.0),
           Text(startDate, style: TextStyle(fontSize: 18.0)),
-          if (job.ratePerHour > 0.0) ...<Widget>[
+          if (job.ratePerHour! > 0.0) ...<Widget>[
             Expanded(child: Container()),
             Text(
               payFormatted,
@@ -62,9 +62,9 @@ class EntryListItem extends StatelessWidget {
           Expanded(child: Container()),
           Text(durationFormatted, style: TextStyle(fontSize: 16.0)),
         ]),
-        if (entry.comment.isNotEmpty)
+        if (entry.comment!.isNotEmpty)
           Text(
-            entry.comment,
+            entry.comment!,
             style: TextStyle(fontSize: 12.0),
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
@@ -83,23 +83,23 @@ class DismissibleEntryListItem extends StatelessWidget {
     this.onTap,
   });
 
-  final Key key;
-  final Entry entry;
-  final Job job;
-  final VoidCallback onDismissed;
-  final VoidCallback onTap;
+  final Key? key;
+  final Entry? entry;
+  final Job? job;
+  final VoidCallback? onDismissed;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Dismissible(
       background: Container(color: Colors.red),
-      key: key,
+      key: key!,
       direction: DismissDirection.endToStart,
-      onDismissed: (direction) => onDismissed(),
+      onDismissed: (direction) => onDismissed!(),
       child: EntryListItem(
-        entry: entry,
-        job: job,
-        onTap: onTap,
+        entry: entry!,
+        job: job!,
+        onTap: onTap!,
       ),
     );
   }
