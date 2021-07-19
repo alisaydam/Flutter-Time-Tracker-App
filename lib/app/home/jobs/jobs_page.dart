@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:time_tracker/app/home/jobs/edit_job_page.dart';
+import 'package:time_tracker/app/home/jobs/job_list_tile.dart';
+import 'package:time_tracker/app/home/jobs/list_items_builder.dart';
 import 'package:time_tracker/common_widgets/show_alert_dialog.dart';
 import 'package:time_tracker/common_widgets/show_exception_alert_dialog.dart';
 import 'package:time_tracker/services/auth.dart';
@@ -33,16 +36,14 @@ class HomePage extends StatelessWidget {
     }
   }
 
-  void _createJob(BuildContext context) async {
+  Future<void> _delete(BuildContext context, Job job) async {
     try {
       final database = Provider.of<Database>(context, listen: false);
-      await database.createJob(
-        Job(name: 'Blogging', ratePerHour: 10),
-      );
+      await database.deleteJob(job);
     } on FirebaseException catch (e) {
       showExceptionAlertDialog(
         context,
-        title: 'Operation Failed',
+        title: 'Operation failed',
         exception: e,
       );
     }
@@ -67,7 +68,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _createJob(context),
+        onPressed: () => EditJobPage.show(context),
         child: Icon(Icons.add),
       ),
       body: _buildContents(context),
@@ -79,21 +80,19 @@ class HomePage extends StatelessWidget {
     return StreamBuilder<List<Job?>>(
       stream: database.jobsStream(),
       builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          final jobs = snapshot.data;
-          final children = jobs!
-              .map(
-                (job) => Text(job!.name),
-              )
-              .toList();
-          return ListView(
-            children: children,
-          );
-        }
-        if (snapshot.hasError) {
-          return Center(child: Text('Some error occured'));
-        }
-        return Center(child: CircularProgressIndicator());
+        return ListItemsBuilder<Job?>(
+          snapshot: snapshot,
+          itemBuilder: (context, job) => Dismissible(
+            key: Key('job-${job!.id}'),
+            onDismissed: (direction) => _delete(context, job),
+            background: Container(color: Colors.red),
+            direction: DismissDirection.endToStart,
+            child: JobListTile(
+              job: job,
+              onTap: () => EditJobPage.show(context, job: job),
+            ),
+          ),
+        );
       },
     );
   }
