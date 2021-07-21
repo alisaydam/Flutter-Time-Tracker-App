@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:time_tracker/app/home/job_entries/job_entries_page.dart';
 import 'package:time_tracker/app/home/jobs/edit_job_page.dart';
 import 'package:time_tracker/app/home/jobs/job_list_tile.dart';
 import 'package:time_tracker/app/home/jobs/list_items_builder.dart';
@@ -11,7 +12,7 @@ import 'package:time_tracker/services/database.dart';
 
 import '../models/job.dart';
 
-class HomePage extends StatelessWidget {
+class JobsPage extends StatelessWidget {
   //Notifying our Landingpage when user signing out.
 
   Future<void> _signOut(BuildContext context) async {
@@ -68,7 +69,8 @@ class HomePage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => EditJobPage.show(context),
+        onPressed: () => EditJobPage.show(context,
+            database: Provider.of<Database>(context, listen: false)),
         child: Icon(Icons.add),
       ),
       body: _buildContents(context),
@@ -89,7 +91,7 @@ class HomePage extends StatelessWidget {
             direction: DismissDirection.endToStart,
             child: JobListTile(
               job: job,
-              onTap: () => EditJobPage.show(context, job: job),
+              onTap: () => JobEntriesPage.show(context, job),
             ),
           ),
         );

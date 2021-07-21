@@ -6,6 +6,8 @@ import 'package:time_tracker/app/sign_in/sign_in_page.dart';
 import 'package:time_tracker/services/auth.dart';
 import 'package:time_tracker/services/database.dart';
 
+import 'home/home_page.dart';
+
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class LandingPage extends StatelessWidget {
               return SignInPage.create(context);
             }
             return Provider<Database>(
-                create: (_) => FireStoreDatabase(uid: user.uid),
+                create: (_) => FirestoreDatabase(uid: user.uid),
                 child: HomePage());
           }
           return Scaffold(
