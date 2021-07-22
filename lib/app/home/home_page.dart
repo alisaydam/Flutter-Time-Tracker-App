@@ -3,6 +3,7 @@ import 'package:time_tracker/app/home/account/account_page.dart';
 import 'package:time_tracker/app/home/tab_item.dart';
 
 import 'cupertino_home_scaffold.dart';
+import 'entries/entries/entries_page.dart';
 import 'jobs/jobs_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   Map<TabItem, WidgetBuilder>? get widgetBuilders {
     return {
       TabItem.jobs: (_) => JobsPage(),
-      TabItem.entries: (_) => Container(),
+      TabItem.entries: (context) => EntriesPage.create(context),
       TabItem.account: (_) => AccountPage(),
     };
   }
