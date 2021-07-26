@@ -8,7 +8,7 @@ class SocialSignInButton extends CustomElevatedButton {
     required String text,
     Color? color,
     required Color textColor,
-    required VoidCallback onPressed,
+    required VoidCallback? onPressed,
   })  : assert(assetName != null), // If null it stops
         assert(text != null),
         super(

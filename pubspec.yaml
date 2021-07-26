@@ -39,12 +39,14 @@ dependencies:
   google_sign_in: ^5.0.4
   flutter_login_facebook: ^1.0.1
   provider: ^5.0.0
+  cloud_firestore: ^2.4.0
+  rxdart: ^0.27.1
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  mockito: ^5.0.12
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your

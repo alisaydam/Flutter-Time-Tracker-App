@@ -5,12 +5,12 @@ import 'package:google_sign_in/google_sign_in.dart';
 abstract class AuthBase {
   User? get currentUser;
   Stream<User?> authStateChanges();
-  Future<User?> signInAnonymously();
   Future<User?> createUserWithEmailAndPassword(String email, String password);
   Future<User?> signInWithEmailAndPassword(String email, String password);
   Future<void> signOut();
   Future<User?> signInWithGoogle();
   Future<User?> signInWithFaceBook();
+  Future<User?> signInAnonymously();
 }
 
 class Auth implements AuthBase {

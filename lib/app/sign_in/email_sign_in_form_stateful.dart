@@ -1,19 +1,24 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:time_tracker/app/sign_in/email_sign_in_model.dart';
 import 'package:time_tracker/app/sign_in/validators.dart';
 import 'package:time_tracker/common_widgets/form_submit_button.dart';
 import 'package:time_tracker/common_widgets/show_exception_alert_dialog.dart';
 import 'package:time_tracker/services/auth.dart';
 
-enum EmailSignInFormType { signIn, register }
+class EmailSignInFormStateful extends StatefulWidget
+    with EmailAndPasswordValidators {
+  final VoidCallback? onSignedIn;
 
-class EmailSignInForm extends StatefulWidget with EmailAndPasswordValidators {
+  EmailSignInFormStateful({Key? key, this.onSignedIn}) : super(key: key);
+
   @override
-  _EmailSignInFormState createState() => _EmailSignInFormState();
+  _EmailSignInFormStatefulState createState() =>
+      _EmailSignInFormStatefulState();
 }
 
-class _EmailSignInFormState extends State<EmailSignInForm> {
+class _EmailSignInFormStatefulState extends State<EmailSignInFormStateful> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final FocusNode _emailFocusNode = FocusNode();
@@ -21,12 +26,21 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
 
   String get _email => _emailController.text;
   String get _password => _passwordController.text;
-
   EmailSignInFormType _formType = EmailSignInFormType.signIn;
   bool _submitted = false;
   bool _isLoading = false;
 
-  void _submit() async {
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    _emailFocusNode.dispose();
+    _passwordocusNode.dispose();
+    print('Sign with email page disposed');
+    super.dispose();
+  }
+
+  Future<void> _submit() async {
     setState(() {
       _submitted = true;
       _isLoading = true;
@@ -38,7 +52,9 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       } else {
         await auth.createUserWithEmailAndPassword(_email, _password);
       }
-      Navigator.of(context).pop();
+      if (widget.onSignedIn != null) {
+        widget.onSignedIn!();
+      }
     } on FirebaseAuthException catch (e) {
       showExceptionAlertDialog(
         context,
@@ -104,6 +120,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
         _submitted && !widget.passwordValidator.isValid(_password);
 
     return TextField(
+      key: Key('password'),
       focusNode: _passwordocusNode,
       controller: _passwordController,
       decoration: InputDecoration(
@@ -121,6 +138,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   TextField _buildEmailTextField() {
     bool showErrorText = _submitted && !widget.emailValidator.isValid(_email);
     return TextField(
+      key: Key('email'),
       focusNode: _emailFocusNode,
       controller: _emailController,
       decoration: InputDecoration(
