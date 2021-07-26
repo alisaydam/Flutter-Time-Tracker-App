@@ -51,7 +51,7 @@ class FirestoreDatabase implements Database {
   @override
   Stream<List<Job>> jobsStream() => _service.collectionStream(
         path: APIPath.jobs(uid),
-        builder: (data, documentId) => Job.fromMap(data, documentId),
+        builder: (data, documentId) => Job.fromMap(data!, documentId),
       );
 
   @override
@@ -72,7 +72,7 @@ class FirestoreDatabase implements Database {
         queryBuilder: job != null
             ? (query) => query.where('jobId', isEqualTo: job.id)
             : null,
-        builder: (data, documentID) => Entry.fromMap(data, documentID),
+        builder: (data, documentID) => Entry.fromMap(data!, documentID),
         sort: (lhs, rhs) => rhs.start.compareTo(lhs.start),
       );
 }

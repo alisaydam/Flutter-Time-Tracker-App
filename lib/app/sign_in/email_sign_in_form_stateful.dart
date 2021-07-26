@@ -9,6 +9,10 @@ import 'package:time_tracker/services/auth.dart';
 
 class EmailSignInFormStateful extends StatefulWidget
     with EmailAndPasswordValidators {
+  final VoidCallback? onSignedIn;
+
+  EmailSignInFormStateful({Key? key, this.onSignedIn}) : super(key: key);
+
   @override
   _EmailSignInFormStatefulState createState() =>
       _EmailSignInFormStatefulState();
@@ -48,7 +52,9 @@ class _EmailSignInFormStatefulState extends State<EmailSignInFormStateful> {
       } else {
         await auth.createUserWithEmailAndPassword(_email, _password);
       }
-      Navigator.of(context).pop();
+      if (widget.onSignedIn != null) {
+        widget.onSignedIn!();
+      }
     } on FirebaseAuthException catch (e) {
       showExceptionAlertDialog(
         context,
@@ -114,6 +120,7 @@ class _EmailSignInFormStatefulState extends State<EmailSignInFormStateful> {
         _submitted && !widget.passwordValidator.isValid(_password);
 
     return TextField(
+      key: Key('password'),
       focusNode: _passwordocusNode,
       controller: _passwordController,
       decoration: InputDecoration(
@@ -131,6 +138,7 @@ class _EmailSignInFormStatefulState extends State<EmailSignInFormStateful> {
   TextField _buildEmailTextField() {
     bool showErrorText = _submitted && !widget.emailValidator.isValid(_email);
     return TextField(
+      key: Key('email'),
       focusNode: _emailFocusNode,
       controller: _emailController,
       decoration: InputDecoration(
