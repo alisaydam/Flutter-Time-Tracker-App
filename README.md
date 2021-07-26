@@ -1,16 +1,34 @@
-# time_tracker
+# Time Treacker
 
-A new Flutter project.
+A new Flutter project that benefits from using bloc & provider for its achitechture and state management solutions. Also storage is powered by Firebase. 
 
-## Getting Started
+##  UIs
+<p float="left" >
+  <img src="https://github.com/KereBere/time-tracker/blob/master/ui/31.png" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/ui/32.png" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/ui/33.png" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/complete-with-tests/ui/34.png" width="225"/>
+</p>
 
-This project is a starting point for a Flutter application.
+The authentication methods are all valid and working with FirebaseAuth.
 
-A few resources to get you started if this is your first Flutter project:
+<p float="left">
+  <img src="https://github.com/KereBere/time-tracker/blob/master/ui/11.png" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/complete-with-tests/ui/152.png" width="225">
+  <img src="https://github.com/KereBere/time-tracker/blob/master/ui/12.png" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/ui/13.png" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/ui/14.png" alt="drawing" width="225"/>
+</p>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Here in JobsPage, we add jobs and its payment rate per hour. Then we click on the job listed and create a time tracker by selecting a time frame.   
+Finally when we created a job and its time frame, it appears inside that particular job. We can also update,delete jobs and its entries inside it. 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+<p float="left ">
+  <img src="https://github.com/KereBere/time-tracker/blob/master/ui/21.png" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/ui/22.png" alt="drawing" width="225"/>  </p>
+  
+  Lastly we have a Entry page that all the entries listed by new to old in order of date created. 
+  
+  
+                                                                                                     
