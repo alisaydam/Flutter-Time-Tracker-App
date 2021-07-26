@@ -1,6 +1,6 @@
 # Time Treacker
 
-A new Flutter project that benefits from using bloc & provider for its achitechture and state management solutions. Also storage is powered by Firebase. 
+A Flutter project that benefits from using bloc & provider for its achitechture and state management solutions. Also it is powered by Firebase for cloud and Authentication.
 
 ##  UIs
 <p float="left" >
