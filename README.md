@@ -1,6 +1,6 @@
 # Time Tracker
 
-##Project Structure 
+## Project Structure 
 
 ``` bash
 ├───lib
