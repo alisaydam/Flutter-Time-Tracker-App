@@ -1,20 +1,21 @@
 # Time Tracker
 
 ##Project Structure 
-  
-  lib
-  --app
-    --home
-      --account_page
-      --entries_page
-      --job_entries_page
-      --jobs_page
-      --models
-    --sign_in
-      --landing_page
-  --common_widgets
-  --services
-    main.dart
+
+``` bash
+├───lib
+│   ├───app
+│   │   ├───home
+│   │   │   ├───account
+│   │   │   ├───entries
+│   │   │   │   └───entries
+│   │   │   ├───jobs
+│   │   │   ├───job_entries
+│   │   │   └───models
+│   │   └───sign_in
+│   ├───common_widgets
+│   └───services
+```
 
 
 
