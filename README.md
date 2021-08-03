@@ -53,10 +53,10 @@ Finally when we created a job and its time frame, it appears inside that particu
   <img src="https://github.com/KereBere/time-tracker/blob/master/display/googlesignin.gif" alt="drawing" width="225"/>
   <img src="https://github.com/KereBere/time-tracker/blob/master/display/logout.gif" alt="drawing" width="225"/>
   <img src="https://github.com/KereBere/time-tracker/blob/master/display/addjob.gif" alt="drawing" width="225"/>
-  <img src="https://github.com/KereBere/time-tracker/blob/master/display/createentry.gif" alt="drawing" width="225"/>
-   <img src="https://github.com/KereBere/time-tracker/blob/master/display/entries.gif" alt="drawing" width="225"/>
+
 </p>
-  
-  
-  
-                                                                                                     
+
+<p float="left">
+  <img src="https://github.com/KereBere/time-tracker/blob/master/display/entries.gif" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/display/createentry.gif" alt="drawing" width="225"/>
+</p> 
