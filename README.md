@@ -1,4 +1,22 @@
-# Time Treacker
+# Time Tracker
+
+##Project Structure 
+  
+  lib
+  --app
+    --home
+      --account_page
+      --entries_page
+      --job_entries_page
+      --jobs_page
+      --models
+    --sign_in
+      --landing_page
+  --common_widgets
+  --services
+    main.dart
+
+
 
 A Flutter project that benefits from using bloc & provider for its achitechture and state management solutions. Also it is powered by Firebase for cloud and Authentication.
 
