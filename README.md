@@ -21,22 +21,22 @@
 
 A Flutter project that benefits from using bloc & provider for its achitechture and state management solutions. Also it is powered by Firebase for cloud and Authentication.
 
+
 ##  UIs
 <p float="left" >
-  <img src="https://github.com/KereBere/time-tracker/blob/master/ui_ss_for_readme/31.png" alt="drawing" width="225"/>
-  <img src="https://github.com/KereBere/time-tracker/blob/master/ui_ss_for_readme/32.png" alt="drawing" width="225"/>
-  <img src="https://github.com/KereBere/time-tracker/blob/master/ui_ss_for_readme/33.png" alt="drawing" width="225"/>
-  <img src="https://github.com/KereBere/time-tracker/blob/complete-with-tests/ui_ss_for_readme/34.png" width="225"/>
+  <img title="SignIn Methods" src="https://github.com/KereBere/time-tracker/blob/master/display/31.png" alt="drawing" width="225"/> 
+  <img title="Unactive Button" src="https://github.com/KereBere/time-tracker/blob/master/display/32.png" alt="drawing" width="225"/>
+  <img title="Activated Button" src="https://github.com/KereBere/time-tracker/blob/master/display/33.png" alt="drawing" width="225"/>
+  <img title="Google SignIn" src="https://github.com/KereBere/time-tracker/blob/master/display/34.png" width="225"/>
 </p>
 
 The authentication methods are all valid and working with FirebaseAuth.
 
 <p float="left">
-  <img src="https://github.com/KereBere/time-tracker/blob/master/ui_ss_for_readme/11.png" alt="drawing" width="225"/>
-  <img src="https://github.com/KereBere/time-tracker/blob/complete-with-tests/ui_ss_for_readme/152.png" width="225">
-  <img src="https://github.com/KereBere/time-tracker/blob/master/ui_ss_for_readme/12.png" alt="drawing" width="225"/>
-  <img src="https://github.com/KereBere/time-tracker/blob/master/ui_ss_for_readme/13.png" alt="drawing" width="225"/>
-  <img src="https://github.com/KereBere/time-tracker/blob/master/ui_ss_for_readme/14.png" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/display/11.png" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/display/12.png" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/display/13.png" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/display/14.png" alt="drawing" width="225"/>
 </p>
 
 Here in JobsPage, we add jobs and its payment rate per hour. Then we click on the job listed and create a time tracker by selecting a time frame.   
@@ -44,10 +44,19 @@ Finally when we created a job and its time frame, it appears inside that particu
 
 
 <p float="left ">
-  <img src="https://github.com/KereBere/time-tracker/blob/master/ui_ss_for_readme/21.png" alt="drawing" width="225"/>
-  <img src="https://github.com/KereBere/time-tracker/blob/master/ui_ss_for_readme/22.png" alt="drawing" width="225"/>  </p>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/display/21.png" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/display/22.png" alt="drawing" width="225"/>  </p>
   
   Lastly we have a Entry page that all the entries listed by new to old in order of date created. 
+  
+ <p float="left">
+  <img src="https://github.com/KereBere/time-tracker/blob/master/display/googlesignin.gif" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/display/logout.gif" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/display/addjob.gif" alt="drawing" width="225"/>
+  <img src="https://github.com/KereBere/time-tracker/blob/master/display/createentry.gif" alt="drawing" width="225"/>
+   <img src="https://github.com/KereBere/time-tracker/blob/master/display/entries.gif" alt="drawing" width="225"/>
+</p>
+  
   
   
                                                                                                      
